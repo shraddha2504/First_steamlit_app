@@ -37,15 +37,19 @@ fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 streamlit.dataframe(fruityvice_normalized)
 
 
-
-
+import streamlit
+import pandas
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+streamlit.text("Hello from Snowflake1:")
 my_cur = my_cnx.cursor()
+streamlit.text("Hello from Snowflake2:")
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+streamlit.text("Hello from Snowflake4:")
 my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
+streamlit.text("Hello from Snowflake5:")
 streamlit.text(my_data_row)
+streamlit.text("Hello from Snowflake6:")
 
 
